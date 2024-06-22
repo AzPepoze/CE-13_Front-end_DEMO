@@ -1,0 +1,180 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@100..900&display=swap');
+
+html:not([enable-animation]) * {
+     transition: none !important;
+}
+
+html[enable-animation] .main-text {
+     color: antiquewhite;
+}
+
+.bg {
+     min-width: 100%;
+     width: 100%;
+     object-fit: cover;
+     height: 100%;
+     position: fixed;
+     transition: all 1s;
+     z-index: -1;
+}
+
+.no_highlights {
+     -webkit-tap-highlight-color: transparent;
+     -webkit-touch-callout: none;
+     -webkit-user-select: none;
+     -khtml-user-select: none;
+     -moz-user-select: none;
+     -ms-user-select: none;
+     user-select: none;
+}
+
+* {
+     font-family: "Noto Sans Thai";
+     color: white;
+
+     scrollbar-color: rgb(206, 206, 206) rgb(39, 39, 39);
+     scrollbar-width: thin;
+}
+
+html:not([enable-animation]) .rainbow-button {
+     background-color: #353535;
+     border-color: rgb(0, 0, 0);
+     border: rgb(129, 129, 129) 2px solid;
+}
+
+[enable-animation] .rainbow-button {
+     background: radial-gradient(ellipse at top, #582d2d, transparent),
+          radial-gradient(ellipse at bottom, #24250f, transparent);
+}
+
+*[disabled-select] {
+     user-select: none;
+}
+
+*[only-click] {
+     cursor: pointer;
+     user-select: none;
+}
+
+*[hover] {
+     transition: 0.2s all;
+}
+
+*[hover]:hover {
+     filter: brightness(1.5);
+}
+
+input::-ms-reveal,
+input::-ms-clear {
+     display: none;
+}
+
+.text-x {
+     font-size: 5em;
+}
+
+.text-m {
+     font-size: 1.5em;
+}
+
+.w-100 {
+     width: 100%;
+}
+
+.text-center {
+     text-align: center;
+}
+
+.all-center {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+}
+
+html[enable-animation] .wave {
+     width: 100%;
+     height: 5%;
+     bottom: 0;
+     position: fixed;
+     opacity: 0.4;
+     background: repeat-x;
+     background-image: url('../img/wave.png');
+     background-size: 1000px 100%;
+}
+
+html:not([enable-animation]) #black_screen {
+     display: none;
+}
+
+@keyframes SlideWave {
+     0% {
+          background-position-x: 0px;
+     }
+
+     100% {
+          background-position-x: 1000px;
+     }
+}
+
+@keyframes Rainbow {
+     0% {
+          filter: hue-rotate(0deg);
+     }
+
+     100% {
+          filter: hue-rotate(360deg);
+     }
+}
+
+.loaded-bar {
+     width: 100%;
+     background: black;
+     position: fixed;
+     transition: all 1s;
+     z-index: 10000;
+}
+
+.loaded-bar[slided] {
+     width: 0%;
+     background: red;
+     animation: Rainbow 1s linear;
+}
+
+.normal-button {
+     border-radius: 20px;
+     color: white;
+     font-weight: 900;
+     background: rgb(24, 24, 24);
+     border: 2px solid rgba(138, 138, 138, 0.637);
+     margin-block: 2%;
+}
+
+[animation-skew-y]{
+     transition: 1s all ease-out;
+}
+
+:not([loaded])[enable-animation] [animation-skew-y]{
+     transform: perspective(10px) rotateX(10deg);
+}
+
+[animation-zoom-out] {
+     transition: 2s all;
+}
+
+:not([loaded])[enable-animation] [animation-zoom-out] {
+     transform: scale(2);
+     opacity: 0;
+}
+
+[animation-fade] {
+     transition: 2s all;
+}
+
+:not([loaded])[enable-animation] [animation-fade] {
+     opacity: 0;
+}
+
+[enable-animation] .rainbow-element {
+     color: antiquewhite;
+     border-color: rgba(255, 205, 205, 0.637);
+}
