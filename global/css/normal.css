@@ -14,6 +14,7 @@ html:not([enable-light]) {
      --rainbow-button-color: radial-gradient(ellipse at top, #582d2d, transparent), radial-gradient(ellipse at bottom, #24250f, transparent);
      --scrollbar-bg-color: rgb(39, 39, 39);
      --button-select: #006c7a;
+     --bg-color-transparent: rgba(0, 0, 0, 0.7);
 }
 
 html[enable-light] {
@@ -179,6 +180,7 @@ html:not([enable-animation]) #black_screen {
 }
 
 [animation-skew-y] {
+     transform: perspective(100px);
      transition: 1s all ease-out;
 }
 
@@ -274,7 +276,7 @@ html:not([enable-animation]) #black_screen {
      height: 80%;
      min-height: 50px;
      aspect-ratio: 1/1;
-     background: rgb(from var(--bg-color) r g b / 0.7);
+     background: var(--bg-color-transparent);
      backdrop-filter: blur(20px);
      display: flex;
      align-items: center;

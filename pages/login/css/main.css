@@ -11,7 +11,7 @@
      min-height: 500px;
      max-width: 90%;
      max-height: 90vw;
-     background: rgb(from var(--bg-color) r g b / 0.7);
+     background: var(--bg-color-transparent);
      backdrop-filter: blur(10px);
      border-radius: 20px;
      border: solid 2px var(--rainbow-color);
