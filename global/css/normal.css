@@ -4,8 +4,42 @@ html:not([enable-animation]) * {
      transition: none !important;
 }
 
+html:not([enable-light]) {
+     --text-color: rgb(255, 255, 255);
+     --bg-color: rgb(0, 0, 0);
+     --main-bg-color: rgb(44, 44, 44);
+     --border-color: rgb(146, 146, 146);
+     --input-bg-color: rgb(146, 146, 146);
+     --rainbow-color: rgba(252, 236, 215, 0.8);
+     --rainbow-button-color: radial-gradient(ellipse at top, #582d2d, transparent), radial-gradient(ellipse at bottom, #24250f, transparent);
+     --scrollbar-bg-color: rgb(39, 39, 39);
+     --button-select: #006c7a;
+}
+
+html[enable-light] {
+     --text-color: rgb(0, 0, 0);
+     --bg-color: rgb(255, 255, 255);
+     --main-bg-color: rgb(255, 255, 255);
+     --border-color: rgb(0, 0, 0);
+     --input-bg-color: rgb(219, 219, 219);
+     --rainbow-color: rgb(99 67 24);
+     --rainbow-button-color: radial-gradient(ellipse at top, #ff8484, transparent), radial-gradient(ellipse at bottom, #ffffff, transparent);
+     --scrollbar-bg-color: rgb(255, 255, 255);
+     --button-select: #a9f5ff;
+}
+
+html {
+     background-color: var(--bg-color);
+}
+
+[no-overflow] {
+     overflow: hidden;
+     text-overflow: ellipsis;
+     white-space: nowrap;
+}
+
 html[enable-animation] .main-text {
-     color: antiquewhite;
+     color: var(--rainbow-color);
 }
 
 .bg {
@@ -30,30 +64,25 @@ html[enable-animation] .main-text {
 
 * {
      font-family: "Noto Sans Thai";
-     color: white;
+     color: var(--text-color);
 
-     scrollbar-color: rgb(206, 206, 206) rgb(39, 39, 39);
+     scrollbar-color: var(--border-color) var(--scrollbar-bg-color);
      scrollbar-width: thin;
+
+     user-select: none;
 }
 
 html:not([enable-animation]) .rainbow-button {
-     background-color: #353535;
-     border-color: rgb(0, 0, 0);
-     border: rgb(129, 129, 129) 2px solid;
+     background-color: var(--main-bg-color);
+     border: var(--border-color) 2px solid;
 }
 
 [enable-animation] .rainbow-button {
-     background: radial-gradient(ellipse at top, #582d2d, transparent),
-          radial-gradient(ellipse at bottom, #24250f, transparent);
+     background: var(--rainbow-button-color);
 }
 
-*[disabled-select] {
-     user-select: none;
-}
-
-*[only-click] {
-     cursor: pointer;
-     user-select: none;
+*[enable-select] {
+     user-select: auto !important;
 }
 
 *[hover] {
@@ -142,18 +171,18 @@ html:not([enable-animation]) #black_screen {
 
 .normal-button {
      border-radius: 20px;
-     color: white;
      font-weight: 900;
-     background: rgb(24, 24, 24);
-     border: 2px solid rgba(138, 138, 138, 0.637);
+     background: var(--main-bg-color);
+     border: 2px solid var(--border-color);
      margin-block: 2%;
+     cursor: context-menu;
 }
 
-[animation-skew-y]{
+[animation-skew-y] {
      transition: 1s all ease-out;
 }
 
-:not([loaded])[enable-animation] [animation-skew-y]{
+:not([loaded])[enable-animation] [animation-skew-y] {
      transform: perspective(10px) rotateX(10deg);
 }
 
@@ -175,6 +204,85 @@ html:not([enable-animation]) #black_screen {
 }
 
 [enable-animation] .rainbow-element {
-     color: antiquewhite;
-     border-color: rgba(255, 205, 205, 0.637);
+     color: var(--rainbow-color);
+     border-color: var(--rainbow-color);
 }
+
+@keyframes blackscreen {
+     0% {
+          background-position: 0% 0%
+     }
+
+     100% {
+          background-position: 100% 100%
+     }
+}
+
+.blackscreen-next-page {
+     position: fixed;
+     width: 100%;
+     height: 100%;
+     background: linear-gradient(90deg, transparent, transparent, black, black);
+     background-size: 300% 100%;
+     transition: background-position 0.5s;
+     z-index: 10000;
+}
+
+[blur-bg] {
+     backdrop-filter: blur(20px);
+}
+
+#head-master {
+     width: 100%;
+     height: 7%;
+     position: fixed;
+     display: flex;
+     z-index: 10;
+     animation: Rainbow 5s infinite linear;
+}
+
+.sub-master {
+     height: 100%;
+     display: flex;
+     align-items: center;
+     padding: 0.5%;
+}
+
+#master-left,
+#master-right {
+     width: 20%;
+}
+
+#master-left {
+     justify-content: flex-start;
+}
+
+#master-left {
+     justify-content: center;
+}
+
+#master-right {
+     justify-content: flex-end;
+}
+
+#master-center {
+     width: 60%;
+}
+
+.top-button {
+     width: auto;
+     height: 80%;
+     min-height: 50px;
+     aspect-ratio: 1/1;
+     background: rgb(from var(--bg-color) r g b / 0.7);
+     backdrop-filter: blur(20px);
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     font-size: 4vmin;
+}
+
+[button-selected] {
+     background: var(--button-select);
+}
+

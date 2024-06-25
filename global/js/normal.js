@@ -368,9 +368,8 @@ function press_enter(id, event) {
      if (event.key == "Enter") {
           var element = document.getElementById(id)
           //console.log(element, element.tagName)
-          if (element.tagName == "INPUT") {
-               element.focus()
-          } else {
+          element.focus()
+          if (element.tagName != "INPUT") {
                element.click()
           }
      }
@@ -389,6 +388,30 @@ function set_blank(name, value) {
      }
 }
 
+var screen_transition;
+
+async function Page_transition() {
+     screen_transition = document.createElement('div')
+     screen_transition.className = "blackscreen-next-page"
+     screen_transition.style.backgroundPositionX = '0%'
+     setTimeout(() => {
+          screen_transition.style.backgroundPositionX = '100%' 
+     }, 0);
+     var body = await GetDocumentBody()
+     body.append(screen_transition)
+}
+
+async function Un_Page_transition() {
+     if (screen_transition) {
+          var temp = screen_transition
+          screen_transition = null;
+          temp.style.backgroundPositionX = '0%'
+          setTimeout(() => {
+               temp.remove()
+          }, 500);
+     }
+}
+
 Performance_Mode = false
 
 async function Load_Document() {
@@ -398,11 +421,17 @@ async function Load_Document() {
      if (params["performance"] != null) {
           localStorage["Performance_Mode"] = params["performance"]
      }
+     if (params["dark_mode"] != null) {
+          localStorage["dark_mode"] = params["dark_mode"]
+     }
      //--------------------------------------
      Performance_Mode = JSON.parse(localStorage["Performance_Mode"])
      console.log(Performance_Mode)
      if (localStorage["Performance_Mode"] == "false") {
           document.documentElement.setAttribute("enable-animation", '')
+     }
+     if (localStorage["dark_mode"] == "false") {
+          document.documentElement.setAttribute("enable-light", '')
      }
      //--------------------------------------
      await WaitDocumentLoaded()

@@ -5,6 +5,11 @@
      padding-inline: 5%;
 }
 
+html:not([enable-animation]) input,
+html:not([enable-animation]) #show-password{
+     border-color: rgb(102, 102, 102);
+}
+
 .login-container {
      height: 70%;
      width: auto;
@@ -24,8 +29,13 @@
 
 html:not([enable-animation]) .login-container {
      backdrop-filter:none;
+     background-color: rgb(10, 10, 10);
      animation: none;
-     border-color: var(--border-color);
+     border-color: rgb(80, 80, 80);
+}
+
+html:not([enable-animation]) .login-container *{
+     color: white;
 }
 
 /* html[enable-animation] .login-container[hide] {

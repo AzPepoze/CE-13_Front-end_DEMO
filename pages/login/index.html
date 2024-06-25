@@ -1,9 +1,10 @@
-<html style="background-color: black; --darkreader-inline-bgcolor: #000000;" data-darkreader-inline-bgcolor="">
+<html>
 
 <head>
+     <meta name="darkreader-lock">
      <title>CE 1101 Login</title>
      <link rel="icon" type="image/x-icon" href="../../global/img/Logo.png">
-     
+
      <link rel="stylesheet" href="css/main.css">
      <link rel="stylesheet" href="../../global/css/normal.css">
      <script src="../../global/js/normal.js"></script>
@@ -17,25 +18,33 @@
      <div id="black_screen" style="background: black; position: fixed; width: 100%; height: 100%; z-index: 100000;">
      </div>
 
+     <div id="head-master">
+          <div class="sub-master" id="master-left"></div>
+          <div class="sub-master" id="master-center"></div>
+          <div class="sub-master" id="master-right" >
+               <div hover id="setting" class="normal-button top-button rainbow-element">⚙️</div>
+          </div>
+     </div>
+
      <div animation-skew-y class="main-container">
           <div id="main-login" class="login-container" hide>
                <div class="main-text text-x w-100 text-center all-center"
                     style="height: 30%; font-weight: 900;" animation-zoom-out>เข้าสู่ระบบ</div>
                <input class="login-component normal-button rainbow-element" id="email" placeholder="อีเมลล์" type="email" onkeydown="press_enter('password',event)">
                <div style="width: 100%; position: relative; height: 10%; display: flex; flex-direction: row; align-items: center; justify-content: space-between;">
-                    <input class="login-component normal-button rainbow-element" id="password" placeholder="รหัสผ่าน" type="password" style="width: 85%; height: 100%; margin-right: 0;">
-                    <div id="show-password" show="false" onclick="toggle_password()" class="all-center no_highlights login-component normal-button rainbow-element" only-click hover
+                    <input onkeydown="press_enter('login-button',event)" class="login-component normal-button rainbow-element" id="password" placeholder="รหัสผ่าน" type="password" style="width: 85%; height: 100%; margin-right: 0;">
+                    <div id="show-password" show="false" onclick="toggle_password()" class="all-center no_highlights login-component normal-button rainbow-element" hover
                          style="top: 0; height: 100%; width:15%; right: 0; padding: 0; margin-left: 2%;">😎</div>
                </div>
                <div class="text-m normal-button all-center no_highlights rainbow-element" hover style="height: 5%; font-weight: 500; width: 40%; margin-top: 2.5%;">
                     ลืมรหัสผ่าน? 🤔
                </div>
-               <div id="login-button" class="login-component normal-button rainbow-button all-center no_highlights" style="padding: 0; margin-top: 10%; " hover>
+               <div onclick="login()" id="login-button" class="login-component normal-button rainbow-button all-center no_highlights" style="padding: 0; margin-top: 10%; " hover>
                     เข้าสู่ระบบ
                </div>
-               <div class="text-m all-center no_highlights rainbow-element"
+               <div no-overflow  class="text-m all-center no_highlights rainbow-element"
                     style="height: 5%; font-weight: 500; width: 100%; margin-top: 2.5%;">
-                    -.-.-.-.-.-.-.-.-.-.-.-.-.-.- หรือ -.-.-.-.-.-.-.-.-.-.-.-.-.-.-
+                    ☆⋆────────── หรือ ──────────⋆☆
                </div>
                <div class="all-center no_highlights"
                style="height: 10%; font-weight: 500; width: 100%; margin-top: 2.5%;">
