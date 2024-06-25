@@ -453,7 +453,3 @@ async function Load_Document() {
 }
 
 Load_Document()
-
-window.addEventListener('resize',function () {
-     console.log(document.documentElement.clientWidth)
-})

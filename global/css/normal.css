@@ -27,7 +27,7 @@ html[enable-light] {
      --rainbow-button-color: radial-gradient(ellipse at top, #ff8484, transparent), radial-gradient(ellipse at bottom, #ffffff, transparent);
      --scrollbar-bg-color: rgb(255, 255, 255);
      --button-select: #a9f5ff;
-     --bg-color-transparent: rgba(255, 255, 255, 0.7);
+     --bg-color-transparent: rgba(255, 255, 255, 0.5);
 }
 
 html {
@@ -75,7 +75,6 @@ html[enable-animation] .main-text {
 }
 
 html:not([enable-animation]) .rainbow-button {
-     background-color: var(--main-bg-color);
      border: var(--border-color) 2px solid;
 }
 
@@ -91,7 +90,12 @@ html:not([enable-animation]) .rainbow-button {
      transition: 0.2s all;
 }
 
-*[hover]:hover {
+html:not([enable-animation]) *[hover]:hover {
+     background: var(--text-color);
+     color: var(--bg-color);
+}
+
+[enable-animation] *[hover]:hover {
      filter: brightness(1.5);
 }
 
@@ -172,6 +176,124 @@ html:not([enable-animation]) #black_screen {
      cursor: context-menu;
 }
 
+.blackscreen-next-page {
+     position: fixed;
+     width: 100%;
+     height: 100%;
+     background: linear-gradient(90deg, transparent, transparent, black, black);
+     background-size: 300% 100%;
+     transition: background-position 0.5s;
+     z-index: 10000;
+}
+
+[blur-bg] {
+     backdrop-filter: blur(20px);
+}
+
+#head-master {
+     width: 100%;
+     height: 7%;
+     min-height: 50px;
+     z-index: 10;
+     display: flex;
+     position: fixed;
+}
+
+.sub-master {
+     height: 85%;
+     display: flex;
+     align-items: center;
+     margin: 0.5%;
+     position: relative;
+}
+
+#master-left,
+#master-right {
+     width: 20%;
+}
+
+#master-left {
+     justify-content: flex-start;
+}
+
+#master-right {
+     justify-content: flex-end;
+}
+
+#master-center {
+     width: 60%;
+     justify-content: space-evenly;
+}
+
+#master-center[show-horizontal] {
+     margin-block: 0.4%;
+}
+
+[enable-animation] #master-center[show-horizontal] {
+     backdrop-filter: blur(20px);
+}
+
+#master-center[show-vertical] {
+     animation: Rainbow 5s infinite linear;
+}
+
+#master-center-container {
+     background: var(--bg-color-transparent);
+     border-radius: 20px;
+     border: 2px solid var(--border-color);
+     overflow: hidden;
+     width: 100%;
+     height: 100%;
+     display: flex;
+     flex-direction: row;
+}
+
+[enable-animation] #master-center-container {
+     animation: Rainbow 5s infinite linear;
+}
+
+[enable-animation] [rainbow-filter] {
+     animation: Rainbow 5s infinite linear;
+}
+
+[Line] {
+     height: 100%;
+     width: 1px;
+     background: gray;
+}
+
+[enable-animation] #master-center-container>div:not([Line]) {
+     transition: all 0.2s;
+}
+
+#master-center-container>div:not([Line]) {
+     width: 25%;
+     height: 100%;
+     font-weight: 500;
+     color: var(--text-color);
+}
+
+#master-center-container>div:not([Line]):hover {
+     color: var(--bg-color);
+     background-color: var(--text-color);
+     font-weight: 600;
+}
+
+.top-button {
+     width: auto;
+     height: 80%;
+     background: var(--bg-color-transparent);
+     backdrop-filter: blur(20px);
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     padding: 1%;
+}
+
+[button-selected] {
+     background: var(--button-select);
+}
+
 [animation-skew-y] {
      transform: perspective(100px) rotateX(0deg);
      transition: 1s all ease-out;
@@ -237,8 +359,8 @@ html:not([enable-animation]) #black_screen {
 /* -------------------------------------------------------*/
 
 [enable-animation] .rainbow-element {
-     color: var(--rainbow-color);
-     border-color: var(--rainbow-color);
+     color: var(--rainbow-color) !important;
+     border-color: var(--rainbow-color) !important;
 }
 
 @keyframes blackscreen {
@@ -251,75 +373,6 @@ html:not([enable-animation]) #black_screen {
      }
 }
 
-.blackscreen-next-page {
-     position: fixed;
-     width: 100%;
-     height: 100%;
-     background: linear-gradient(90deg, transparent, transparent, black, black);
-     background-size: 300% 100%;
-     transition: background-position 0.5s;
-     z-index: 10000;
-}
-
-[blur-bg] {
-     backdrop-filter: blur(20px);
-}
-
-#head-master {
-     width: 100%;
-     height: 7%;
-     min-height: 50px;
-     position: fixed;
-     display: flex;
-     z-index: 10;
-     animation: Rainbow 5s infinite linear;
-}
-
-.sub-master {
-     height: 100%;
-     display: flex;
-     align-items: center;
-     padding: 0.5%;
-}
-
-#master-left,
-#master-right {
-     width: 20%;
-}
-
-#master-left {
-     justify-content: flex-start;
-}
-
-#master-left {
-     justify-content: center;
-}
-
-#master-right {
-     justify-content: flex-end;
-}
-
-#master-center {
-     width: 60%;
-     justify-content: space-evenly;
-}
-
-.top-button {
-     width: auto;
-     height: 80%;
-     background: var(--bg-color-transparent);
-     backdrop-filter: blur(20px);
-     display: flex;
-     align-items: center;
-     justify-content: center;
-     font-size: 4vmin;
-     padding: 1%;
-}
-
-[button-selected] {
-     background: var(--button-select);
-}
-
 /* -------------------------------------------------------*/
 
 @media (min-width: 500px) {
@@ -329,6 +382,10 @@ html:not([enable-animation]) #black_screen {
 
      [text-m] {
           font-size: 1.3em;
+     }
+
+     [text-l] {
+          font-size: 2em;
      }
 }
 
@@ -340,7 +397,13 @@ html:not([enable-animation]) #black_screen {
      [text-m] {
           font-size: 1em;
      }
+
+     [text-l] {
+          font-size: 3em;
+     }
 }
+
+/* -------------------------------------------------------*/
 
 @media screen and (orientation:landscape) {
      [show-vertical] {

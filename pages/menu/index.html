@@ -5,7 +5,7 @@
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <title>CE 1101 Login</title>
      <link rel="icon" type="image/x-icon" href="../../global/img/Logo.png">
-     
+
      <link rel="stylesheet" href="css/main.css">
      <link rel="stylesheet" href="../../global/css/normal.css">
      <script src="../../global/js/normal.js"></script>
@@ -20,32 +20,49 @@
      </div>
 
      <div id="head-master">
-          <div class="sub-master" id="master-left">
-               
+          <div rainbow-filter class="sub-master" id="master-left">
+               <div hover id="setting" animation-slide-from-left style="animation-delay: 0.5s; aspect-ratio: 1/1;"
+                    class="normal-button top-button rainbow-element">User</div>
           </div>
-          
-          <div class="sub-master" id="master-center">
-          
-               <div show-horizontal id="Test" animation-slide-from-bottom style="animation-delay: 0.3s;" hover
-                    class="normal-button top-button rainbow-element">Test</div>
-               <div show-horizontal id="Test" animation-slide-from-bottom style="animation-delay: 0.5s;" hover
-                    class="normal-button top-button rainbow-element">Test</div>
-               <div show-horizontal id="Test" animation-slide-from-bottom style="animation-delay: 0.7s;" hover
-                    class="normal-button top-button rainbow-element">Test</div>
-               <div show-horizontal id="Test" animation-slide-from-bottom style="animation-delay: 0.9s;" hover
-                    class="normal-button top-button rainbow-element">Test</div>
-          
-               <div show-vertical id="Test" animation-slide-from-bottom style="animation-delay: 0.7s; aspect-ratio: 1/1;" hover
-                    class="normal-button top-button rainbow-element">=</div>
-          
+
+          <div show-horizontal animation-slide-from-bottom style="animation-delay: 0.5s;" id="master-center">
+               <div id="master-center-container" class="rainbow-element">
+
+                    <div text-m id="Problems" animation-slide-from-bottom style="animation-delay: 0.6s;"
+                         class="all-center">
+                         😎 ทำโจทย์</div>
+
+                    <div Line></div>
+
+                    <div text-m id="Leaderboard" animation-slide-from-bottom style="animation-delay: 0.8s;"
+                         class="all-center">
+                         🏅 ดูอันดับ</div>
+
+                    <div Line></div>
+
+                    <div text-m id="Test" animation-slide-from-bottom style="animation-delay: 1s;"
+                         class="all-center">
+                         Test</div>
+
+                    <div Line></div>
+
+                    <div text-m id="Test" animation-slide-from-bottom style="animation-delay: 1.2s;"
+                         class="all-center">
+                         Test</div>
+               </div>
           </div>
-          
-          <div class="sub-master" id="master-right">
+
+          <div show-vertical class="sub-master" id="master-center">
+               <div onclick="Expand_center()" text-l animation-slide-from-bottom style="animation-delay: 0.7s; aspect-ratio: 1/1;" hover
+                    class="all-center normal-button top-button rainbow-element">≡</div>
+          </div>
+
+          <div rainbow-filter class="sub-master" id="master-right">
                <div hover id="setting" animation-slide-from-right style="animation-delay: 0.5s; aspect-ratio: 1/1;"
                     class="normal-button top-button rainbow-element">⚙️</div>
           </div>
      </div>
-     
+
 </body>
 
 </html>
