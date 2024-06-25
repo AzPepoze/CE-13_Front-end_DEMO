@@ -181,12 +181,12 @@ html:not([enable-animation]) #black_screen {
 }
 
 [animation-skew-y] {
-     transform: translateZ(0px) perspective(100px) rotateX(0deg);
+     transform: perspective(100px) rotateX(0deg);
      transition: 1s all ease-out;
 }
 
 :not([loaded])[enable-animation] [animation-skew-y] {
-     transform: translateZ(0px) perspective(100px) rotateX(10deg);
+     transform: perspective(100px) rotateX(10deg);
 }
 
 [animation-zoom-out] {

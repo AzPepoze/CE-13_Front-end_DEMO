@@ -33,7 +33,7 @@ html:not([enable-animation]) .login-container {
      opacity: 0;
 } */
 
-.main-container {
+#main-container {
      width: 100%;
      height: 100%;
      position: fixed;
@@ -41,4 +41,5 @@ html:not([enable-animation]) .login-container {
      align-items: center;
      justify-content: center;
      overflow: auto;
+     transform: translateZ(0);
 }
