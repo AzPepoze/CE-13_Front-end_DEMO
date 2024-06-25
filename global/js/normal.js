@@ -418,6 +418,8 @@ async function Un_Page_transition() {
 window.onbeforeunload = function () {
      setTimeout(() => {
           if (screen_transition) {
+               var temp = screen_transition
+               screen_transition = null;
                temp.remove()
           }
      }, 1000);
