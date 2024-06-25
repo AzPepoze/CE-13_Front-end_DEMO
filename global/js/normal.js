@@ -415,7 +415,7 @@ async function Un_Page_transition() {
      }
 }
 
-window.addEventListener('pagehide', function () {
+window.addEventListener('pageshow', function () {
      if (screen_transition) {
           var temp = screen_transition
           screen_transition = null;
