@@ -393,12 +393,12 @@ var screen_transition;
 async function Page_transition() {
      if (Performance_Mode == true) {
           return
-     } 
+     }
      screen_transition = document.createElement('div')
      screen_transition.className = "blackscreen-next-page"
      screen_transition.style.backgroundPositionX = '0%'
      setTimeout(() => {
-          screen_transition.style.backgroundPositionX = '100%' 
+          screen_transition.style.backgroundPositionX = '100%'
      }, 1);
      var body = await GetDocumentBody()
      body.append(screen_transition)
@@ -415,7 +415,7 @@ async function Un_Page_transition() {
      }
 }
 
-window.onbeforeunload = function () {
+window.addEventListener('beforeunload', function () {
      setTimeout(() => {
           if (screen_transition) {
                var temp = screen_transition
@@ -423,7 +423,7 @@ window.onbeforeunload = function () {
                temp.remove()
           }
      }, 1000);
-}
+})
 
 Performance_Mode = false
 
