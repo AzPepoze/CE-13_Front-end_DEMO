@@ -54,6 +54,10 @@ html[enable-animation] .main-text {
      z-index: -1;
 }
 
+[round] {
+     border-radius: 999px !important;
+}
+
 .no_highlights {
      -webkit-tap-highlight-color: transparent;
      -webkit-touch-callout: none;
