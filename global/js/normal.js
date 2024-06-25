@@ -396,7 +396,7 @@ async function Page_transition() {
      screen_transition.style.backgroundPositionX = '0%'
      setTimeout(() => {
           screen_transition.style.backgroundPositionX = '100%' 
-     }, 0);
+     }, 1);
      var body = await GetDocumentBody()
      body.append(screen_transition)
 }
@@ -408,7 +408,7 @@ async function Un_Page_transition() {
           temp.style.backgroundPositionX = '0%'
           setTimeout(() => {
                temp.remove()
-          }, 500);
+          }, 200);
      }
 }
 
