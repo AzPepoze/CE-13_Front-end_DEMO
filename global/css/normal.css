@@ -27,6 +27,7 @@ html[enable-light] {
      --rainbow-button-color: radial-gradient(ellipse at top, #ff8484, transparent), radial-gradient(ellipse at bottom, #ffffff, transparent);
      --scrollbar-bg-color: rgb(255, 255, 255);
      --button-select: #a9f5ff;
+     --bg-color-transparent: rgba(255, 255, 255, 0.7);
 }
 
 html {
