@@ -183,7 +183,7 @@ html:not([enable-animation]) #black_screen {
 }
 
 :not([loaded])[enable-animation] [animation-skew-y] {
-     transform: perspective(10px) rotateX(10deg);
+     transform: perspective(100px) rotateX(10deg);
 }
 
 [animation-zoom-out] {
