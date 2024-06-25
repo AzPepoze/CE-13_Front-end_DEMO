@@ -391,6 +391,9 @@ function set_blank(name, value) {
 var screen_transition;
 
 async function Page_transition() {
+     if (Performance_Mode == true) {
+          return
+     } 
      screen_transition = document.createElement('div')
      screen_transition.className = "blackscreen-next-page"
      screen_transition.style.backgroundPositionX = '0%'
@@ -413,7 +416,11 @@ async function Un_Page_transition() {
 }
 
 window.onbeforeunload = function () {
-     Un_Page_transition()
+     setTimeout(() => {
+          if (screen_transition) {
+               temp.remove()
+          }
+     }, 1000);
 }
 
 Performance_Mode = false
