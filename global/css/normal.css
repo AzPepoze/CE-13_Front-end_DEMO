@@ -206,6 +206,44 @@ html:not([enable-animation]) #black_screen {
      opacity: 0;
 }
 
+/* -------------------------------------------------------*/
+
+@keyframes slide-from-right {
+     100% {
+          transform: translateX(0px);
+          opacity: 1;
+     }
+}
+
+[enable-animation] [animation-slide-from-right] {
+     transform: translateX(20px);
+     opacity: 0;
+}
+
+[loaded][enable-animation] [animation-slide-from-right] {
+     animation: slide-from-right 0.5s forwards;
+}
+
+/* -------------------------------------------------------*/
+
+@keyframes slide-from-bottom {
+     100% {
+          transform: translateY(0px);
+          opacity: 1;
+     }
+}
+
+[enable-animation] [animation-slide-from-bottom] {
+     transform: translateY(20px);
+     opacity: 0;
+}
+
+[loaded][enable-animation] [animation-slide-from-bottom] {
+     animation: slide-from-bottom 0.5s forwards;
+}
+
+/* -------------------------------------------------------*/
+
 [enable-animation] .rainbow-element {
      color: var(--rainbow-color);
      border-color: var(--rainbow-color);
@@ -288,4 +326,3 @@ html:not([enable-animation]) #black_screen {
 [button-selected] {
      background: var(--button-select);
 }
-
