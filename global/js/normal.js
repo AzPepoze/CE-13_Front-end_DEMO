@@ -329,6 +329,16 @@ function getUrlParams(url) {
      return params;
 }
 
+function getOnlyUrl(url) {
+     try {
+          const parsedUrl = new URL(url);
+          return `${parsedUrl.origin}${parsedUrl.pathname}`;
+     } catch (error) {
+          console.error("Invalid URL:", error);
+          return null;
+     }
+}
+
 
 function Create_StyleSheet() {
      var style = document.createElement('style');
@@ -393,6 +403,10 @@ var screen_transition;
 async function Page_transition() {
      if (Performance_Mode == true) {
           return
+     }
+     if (screen_transition) {
+          screen_transition.remove()
+          screen_transition = null
      }
      screen_transition = document.createElement('div')
      screen_transition.className = "blackscreen-next-page"

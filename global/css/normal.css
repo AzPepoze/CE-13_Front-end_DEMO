@@ -52,6 +52,7 @@ html[enable-animation] .main-text {
      position: fixed;
      transition: all 1s;
      z-index: -1;
+     top: 0;
 }
 
 [round] {
@@ -266,18 +267,19 @@ html:not([enable-animation]) #black_screen {
      background: gray;
 }
 
-[enable-animation] #master-center-container>div:not([Line]) {
+[enable-animation] #master-center-container>:not([Line]) {
      transition: all 0.2s;
 }
 
-#master-center-container>div:not([Line]) {
+#master-center-container>:not([Line]) {
      width: 25%;
      height: 100%;
      font-weight: 500;
      color: var(--text-color);
+     text-decoration: none;
 }
 
-#master-center-container>div:not([Line]):hover {
+#master-center-container>:not([Line]):hover {
      color: var(--bg-color);
      background-color: var(--text-color);
      font-weight: 600;
