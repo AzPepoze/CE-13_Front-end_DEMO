@@ -415,14 +415,12 @@ async function Un_Page_transition() {
      }
 }
 
-window.addEventListener('beforeunload', function () {
-     setTimeout(() => {
-          if (screen_transition) {
-               var temp = screen_transition
-               screen_transition = null;
-               temp.remove()
-          }
-     }, 1000);
+window.addEventListener('pagehide', function () {
+     if (screen_transition) {
+          var temp = screen_transition
+          screen_transition = null;
+          temp.remove()
+     }
 })
 
 Performance_Mode = false
