@@ -25,4 +25,88 @@
      height: 90%;
      bottom: 0;
      position: fixed;
+     max-height: calc(95% - 50px);
+     display: flex;
+     flex-direction: row;
 }
+
+/* --------------------------------------- */
+
+@media screen and (orientation:portrait) {
+     .problem-detail {
+          width: 0%;
+     }
+
+     .problem-container {
+          width: 100%;
+          margin: 1%;
+     }
+
+     .problem-container .problem *{
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+     }
+}
+
+@media screen and (orientation:landscape) {
+     .problem-detail {
+          width: 30%;
+          margin: 1%;
+     }
+
+     .problem-container {
+          width: 70%;
+          margin: 1%;
+          margin-top: 0px;
+     }
+}
+
+.problem-detail {
+     background: var(--bg-color-transparent);
+     margin-top: 0px;
+     border-radius: 20px;
+     backdrop-filter: blur(20px);
+}
+
+.problem-container {
+     display: flex;
+     flex-direction: column;
+     max-height: calc(100% - 1%);
+}
+
+.problem-list {
+     mask: linear-gradient(180deg, transparent, black 1%, black 99%, transparent);
+     overflow-y: auto;
+}
+
+[enable-animation] .problem-container {}
+
+.problem {
+     display: flex;
+     align-items: center;
+     justify-content: space-evenly;
+     flex-direction: row;
+     background-color: var(--bg-color);
+     min-height: 60px;
+     margin-block: 5px;
+     border-radius: 999px;
+}
+
+.problem>div {
+     width: 25%;
+}
+
+.problem * {
+     font-weight: 600;
+}
+
+html:not([enable-light]) .problem [problem-author] {
+     color: rgb(255, 215, 85);
+}
+
+[enable-light] .problem [problem-author] {
+     color: rgb(143, 126, 31);
+}
+
+/* --------------------------------------- */

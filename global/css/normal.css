@@ -27,7 +27,7 @@ html[enable-light] {
      --rainbow-button-color: radial-gradient(ellipse at top, #ff8484, transparent), radial-gradient(ellipse at bottom, #ffffff, transparent);
      --scrollbar-bg-color: rgb(255, 255, 255);
      --button-select: #a9f5ff;
-     --bg-color-transparent: rgba(255, 255, 255, 0.5);
+     --bg-color-transparent: rgb(255 255 255 / 83%);
 }
 
 html {
@@ -422,5 +422,19 @@ html:not([enable-animation]) #black_screen {
 
      #master-right {
           width: 92.5%;
+     }
+}
+
+@media screen and (orientation:landscape) {
+     [text-x] {
+          font-size: 10vh;
+     }
+
+     [text-m] {
+          font-size: 3vh;
+     }
+
+     [text-l] {
+          font-size: 4vh;
      }
 }
