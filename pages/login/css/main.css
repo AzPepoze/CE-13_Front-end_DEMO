@@ -8,7 +8,6 @@
      height: 70%;
      width: auto;
      max-width: 90%;
-     max-height: 90vw;
      background: var(--bg-color-transparent);
      backdrop-filter: blur(10px);
      border-radius: 20px;
