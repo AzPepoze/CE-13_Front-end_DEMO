@@ -42,7 +42,7 @@
           margin: 1%;
      }
 
-     .problem-container .problem *{
+     .problem-container .problem * {
           overflow: hidden;
           white-space: nowrap;
           text-overflow: ellipsis;
@@ -53,6 +53,7 @@
      .problem-detail {
           width: 30%;
           margin: 1%;
+          margin-left: 0px;
      }
 
      .problem-container {
@@ -73,24 +74,45 @@
      display: flex;
      flex-direction: column;
      max-height: calc(100% - 1%);
+     backdrop-filter: blur(20px);
+     background: var(--bg-color-transparent);
+     overflow: hidden;
+     border-radius: 30px;
 }
 
 .problem-list {
-     mask: linear-gradient(180deg, transparent, black 1%, black 99%, transparent);
      overflow-y: auto;
+     border-radius: 0px 0px 30px 30px;
 }
 
 [enable-animation] .problem-container {}
+
+#problem-header {
+     margin-block: 0;
+     margin-right: 20px;
+     box-shadow: rgba(0, 0, 0, 0.411) 0px 5px 5px;
+     background: var(--bg-color-transparent);
+}
 
 .problem {
      display: flex;
      align-items: center;
      justify-content: space-evenly;
      flex-direction: row;
-     background-color: var(--bg-color);
      min-height: 60px;
      margin-block: 5px;
-     border-radius: 999px;
+     margin-inline: 10px;
+     border-radius: 20px;
+     transition: 0.2s all;
+     box-shadow: var(--text-color) 0px 0px 2px;
+     border: 2px transparent solid;
+}
+
+.problem-list .problem:hover {
+     box-shadow: transparent 0px 0px 0px;
+     background: var(--bg-color-transparent);
+     transform: scale(1.01);
+     border: 2px gold solid;
 }
 
 .problem>div {
